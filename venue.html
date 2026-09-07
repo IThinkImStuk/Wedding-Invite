@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding</title>
+    <link rel="icon" type="image/png" href="/images/icons8-wedding-day-50.png">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Stuart & Lucy</h1>
+        <p style="font-style: italic; color: #666; font-size: 1.2em;">Are Getting Married!</p>
+
+        <div id="nav"></div>
+        <script>
+            fetch("./nav.html")
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById("nav").innerHTML = html;
+                });
+        </script>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+        <h2>This is our venue page!</h2>
+        <p>We can't wait to celebrate our special day with our favourite people. Explore the site for event details,
+            travel tips, and to let us know if you can make it!</p>
+    </div>
+    <script>
+        document.documentElement.classList.add('loaded');
+    </script>
+</body>
+
+</html>

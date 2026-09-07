@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding - RSVP</title>
+    <link rel="icon" type="image/png" href="/images/icons8-wedding-day-50.png">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Stuart & Lucy</h1>
+        <p style="font-style: italic; color: #666; font-size: 1.2em;">Are Getting Married!</p>
+
+        <div id="nav"></div>
+        <script>
+            fetch("./nav.html")
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById("nav").innerHTML = html;
+                });
+        </script>
+
+        <!-- Guest Code Entry Box -->
+        <div id="password-box" class="password-gate">
+            <p>Please enter your unique RSVP code found on your invitation card:</p>
+            <input type="text" id="guest-code" placeholder="e.g. STU123" autocapitalize="characters" autocorrect="off">
+            <br>
+            <button class="btn" onclick="checkGuestCode()">Unlock My RSVP</button>
+            <p id="error" class="error-msg">Code not found. Please double-check your invite card!</p>
+        </div>
+
+        <!-- Hidden RSVP Content Frame -->
+        <div id="rsvp-content" style="display: none;">
+            <h3 id="welcome-guest"></h3>
+            <p>Please complete the form below to confirm your attendance.</p>
+            <iframe id="wedding-form" src="" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+
+    <!-- PULL IN YOUR GUEST LIST DICTIONARY -->
+    <script src="/guests.js"></script>
+
+    <!-- LOGIC TO UNLOCK AND AUTOFILL -->
+    <script>
+        function checkGuestCode() {
+            var enteredCode = document.getElementById("guest-code").value.toUpperCase().trim();
+
+            if (guestList[enteredCode]) {
+                var guestName = guestList[enteredCode];
+
+                // Swap entry.123456789 with your actual Google Form field ID!
+                var baseFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSekk66Do39XSUAIUHg8cHmOPdLKo-eqFNc4P94dyiuHADwcuw/viewform?usp=pp_url&entry.714406495=" + encodeURIComponent(guestName);
+
+                document.getElementById("wedding-form").src = baseFormUrl;
+
+                document.getElementById("password-box").style.display = "none";
+                document.getElementById("rsvp-content").style.display = "block";
+            } else {
+                document.getElementById("error").style.display = "block";
+            }
+        }
+
+        document.getElementById("guest-code").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") { checkGuestCode(); }
+        });
+    </script>
+    <script>
+        document.documentElement.classList.add('loaded');
+    </script>
+</body>
+
+</html>
