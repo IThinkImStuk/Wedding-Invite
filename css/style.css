@@ -1,9 +1,17 @@
+html.nav-loading {
+    visibility: hidden;
+}
+
 body {
     font-family: 'Georgia', serif;
     text-align: center;
     background-color: #fcfbfa;
     color: #333;
     padding: 40px 20px;
+}
+
+#nav {
+    min-height: 31px;
 }
 
 .container {

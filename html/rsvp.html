@@ -16,13 +16,7 @@
         <p style="font-style: italic; color: #666; font-size: 1.2em;">Are Getting Married!</p>
 
         <div id="nav"></div>
-        <script>
-            fetch("./nav.html")
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById("nav").innerHTML = html;
-                });
-        </script>
+        <script src="/js/nav.js"></script>
 
         <!-- Guest Code Entry Box -->
         <div id="password-box" class="password-gate">
