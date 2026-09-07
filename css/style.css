@@ -1,3 +1,8 @@
+#welcome-guest,
+#guest-attendance {
+    white-space: pre-line;
+}
+
 html.nav-loading {
     visibility: hidden;
 }
@@ -44,17 +49,6 @@ nav a {
 nav a:hover {
     color: #333;
 }
-
-/* Hide the page by default to prevent the layout flash 
-html {
-    opacity: 0;
-    transition: opacity 0.1s ease-in-out;
-}
-
-html.loaded {
-    opacity: 1;
-}
-*/
 
 input,
 button,
@@ -193,3 +187,4 @@ iframe {
 .next-btn {
     right: 20px;
 }
+

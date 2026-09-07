@@ -43,17 +43,20 @@ To keep personal details off public feeds, all sensitive mapping data is kept sa
 
 Before testing the RSVP system locally, remove `.example` from the following files under `js/`:
 
-1. `js/guests.example.js` — Stores code-to-guest mappings.
+1. `js/guests.example.js` — Stores example code-to-guest-and-attendance mappings.
 2. `js/googleDocFormReference.example.js` — Stores your target Google Form base URL.
 
 Check `js/guests.example.js` for the quick template format:
 
 ```javascript
 var guestList = {
-    "ABC": "Guest Name"
+    "ABC": { name: "Guest Name", attendance: "Full day" },
+    "DEF": { name: "Another Guest", attendance: "Evening" }
 };
 
 ```
+
+The `attendance` value is shown to the guest after their code is accepted and is also sent to the second prefilled Google Form field. Update it for each invitation using values such as `Full day` or `Evening`.
 
 ---
 

@@ -30,6 +30,7 @@
         <!-- Hidden RSVP Content Frame -->
         <div id="rsvp-content" style="display: none;">
             <h3 id="welcome-guest"></h3>
+            <p id="guest-attendance"></p>
             <p>Please complete the form below to confirm your attendance.</p>
             <iframe id="wedding-form" src="" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
@@ -46,12 +47,13 @@
             var enteredCode = document.getElementById("guest-code").value.toUpperCase().trim();
 
             if (guestList[enteredCode]) {
-                var guestName = guestList[enteredCode];
+                var guest = guestList[enteredCode];
 
-                // Swap entry.123456789 with your actual Google Form field ID!
-                var baseFormUrl = googleDocForm + encodeURIComponent(guestName);
+                var baseFormUrl = googleDocForm1 + encodeURIComponent(guest.name) + googleDocForm2 + encodeURIComponent(guest.attendance);
 
                 document.getElementById("wedding-form").src = baseFormUrl;
+                document.getElementById("welcome-guest").textContent = "Welcome,\n" + guest.name;
+                document.getElementById("guest-attendance").textContent = "Your invitation is for:\n" + guest.attendance;
 
                 document.getElementById("password-box").style.display = "none";
                 document.getElementById("rsvp-content").style.display = "block";

@@ -1,9 +1,5 @@
 // Add, edit, or remove guest codes here safely!
 var guestList = {
-    "ABC": "",
-    "DEF": "",
-    "GHI": "",
-    "JKL": "",
-    "MNO": "",
-    "PQR": "",
+    "ABC": { name: "Guest Name", attendance: "Full day" },
+    "DEF": { name: "Guest Name", attendance: "Evening" },
 };
