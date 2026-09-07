@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Wedding - RSVP</title>
     <link rel="icon" type="image/png" href="/images/icons8-wedding-day-50.png">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -42,7 +42,9 @@
     </div>
 
     <!-- PULL IN YOUR GUEST LIST DICTIONARY -->
-    <script src="/guests.js"></script>
+    <script src="/js/guests.js"></script>
+    <script src="/js/googleDocFormReference.js"></script>
+
 
     <!-- LOGIC TO UNLOCK AND AUTOFILL -->
     <script>
@@ -53,7 +55,7 @@
                 var guestName = guestList[enteredCode];
 
                 // Swap entry.123456789 with your actual Google Form field ID!
-                var baseFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSekk66Do39XSUAIUHg8cHmOPdLKo-eqFNc4P94dyiuHADwcuw/viewform?usp=pp_url&entry.714406495=" + encodeURIComponent(guestName);
+                var baseFormUrl = googleDocForm + encodeURIComponent(guestName);
 
                 document.getElementById("wedding-form").src = baseFormUrl;
 
