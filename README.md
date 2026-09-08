@@ -8,7 +8,6 @@ Welcome to the repo for my upcoming wedding website! This project is a custom-bu
 
 * **Home Base:** A warm welcome introducing the wedding and directing guests straight to the RSVP section.
 * **Unified Navigation:** Global header navigation loading dynamically across all pages:
-* **Home**
 * **Venue**
 * **Details**
 * **Inspiration**
